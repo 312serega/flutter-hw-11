@@ -3,25 +3,21 @@ import 'package:flutter/material.dart';
 import '../../../constants/user_colors.dart';
 
 class UserBtnOutline extends StatelessWidget {
-  const UserBtnOutline(
-      {Key? key,
-      required this.title,
-      this.bgColor,
-      this.textColor,
-      this.borderColor,
-      this.btnIcon,
-      this.onPressed,
-      this.id,
-      this.selectId})
-      : super(key: key);
+  const UserBtnOutline({
+    Key? key,
+    required this.title,
+    this.bgColor,
+    this.textColor,
+    this.borderColor,
+    this.btnIcon,
+    this.onPressed,
+  }) : super(key: key);
   final String title;
 
   final Color? bgColor;
   final Color? textColor;
   final Color? borderColor;
   final IconData? btnIcon;
-  final String? id;
-  final String? selectId;
 
   final Function()? onPressed;
 
