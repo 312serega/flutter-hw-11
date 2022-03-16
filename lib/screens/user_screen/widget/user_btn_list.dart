@@ -4,8 +4,25 @@ import 'package:flutter_hw_11_profile/screens/user_screen/widget/user_btn_item.d
 
 import '../../../constants/user_colors.dart';
 
-class UserBtnList extends StatelessWidget {
+class UserBtnList extends StatefulWidget {
   const UserBtnList({Key? key}) : super(key: key);
+
+  @override
+  State<UserBtnList> createState() => _UserBtnListState();
+}
+
+class _UserBtnListState extends State<UserBtnList> {
+  List<String> level = [
+    'Black',
+    'Bold',
+    'Medium',
+    'Regular',
+    'Light',
+    'Thin',
+    'Other',
+  ];
+
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -21,33 +38,31 @@ class UserBtnList extends StatelessWidget {
         ),
         SizedBox(
           height: 32,
-          child: ListView(
-            shrinkWrap: true,
+          child: ListView.separated(
             scrollDirection: Axis.horizontal,
-            children: const [
-              SizedBox(width: 16),
-              UserBtnItem(title: 'Black'),
-              SizedBox(width: 8),
-              UserBtnItem(title: 'Bold'),
-              SizedBox(width: 8),
-              UserBtnItem(title: 'Medium'),
-              SizedBox(width: 8),
-              UserBtnItem(title: 'Regular'),
-              SizedBox(width: 8),
-              UserBtnItem(title: 'Light'),
-              SizedBox(width: 8),
-              UserBtnItem(title: 'Thin'),
-              SizedBox(width: 16),
-            ],
+            itemCount: level.length,
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            separatorBuilder: (context, index) => const SizedBox(
+              width: 8,
+            ),
+            itemBuilder: (context, index) => UserBtnItem(
+              title: level[index],
+              index: index,
+              currentIndex: selectedIndex,
+              onPressed: () {
+                selectedIndex = index;
+                setState(() {});
+              },
+            ),
           ),
         ),
         const SizedBox(height: 16),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          child: Divider(
-            height: 1,
-            color: UserColor.lightGreyOpacity,
-          ),
+        const Divider(
+          height: 1,
+          thickness: 1,
+          indent: 16,
+          endIndent: 16,
+          color: UserColor.lightGreyOpacity,
         ),
       ],
     );

@@ -9,6 +9,6 @@ class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return UserScreen();
+    return const UserScreen();
   }
 }

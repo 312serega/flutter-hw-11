@@ -9,7 +9,7 @@ class UserInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Column(
         children: [
           const SizedBox(height: 24),
@@ -22,17 +22,23 @@ class UserInfo extends StatelessWidget {
               Positioned(
                 bottom: 0,
                 right: 0,
-                child: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  radius: 18,
-                  child: CircleAvatar(
-                    backgroundColor: UserColor.violet500,
-                    radius: 16,
+                child: SizedBox(
+                  height: 40,
+                  width: 40,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: UserColor.violet500,
+                      borderRadius: BorderRadius.circular(100),
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 2,
+                      ),
+                    ),
                     child: IconButton(
                       padding: EdgeInsets.zero,
                       icon: const Icon(Icons.add),
                       color: Colors.white,
-                      splashRadius: 22,
+                      splashRadius: 25,
                       iconSize: 18,
                       onPressed: () {},
                     ),
@@ -42,17 +48,18 @@ class UserInfo extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24),
-          const Text(
+          Text(
             'Tiana Rosser',
-            style: UserTextStyle.fontSize16W400Black,
+            style: UserTextStyle.fontSize16W400Black.copyWith(height: 1.5),
           ),
-          const Text(
+          Text(
             'Developer',
-            style: UserTextStyle.font12W400Grey,
+            style: UserTextStyle.font12W400Grey.copyWith(height: 1.33),
           ),
           const SizedBox(height: 24),
           const Divider(
             height: 1,
+            thickness: 1,
             color: UserColor.lightGreyOpacity,
           ),
           const SizedBox(height: 12),

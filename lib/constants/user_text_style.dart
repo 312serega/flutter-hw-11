@@ -16,4 +16,9 @@ class UserTextStyle {
     fontWeight: FontWeight.w400,
     color: Color(0xff666666),
   );
+  static const TextStyle font24Normal = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.normal,
+    color: Color(0xff212121),
+  );
 }
